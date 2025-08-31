@@ -1,12 +1,8 @@
-provider "aws" {
-  region = "us-west-2"
-  
-}
-resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe1f0" # Amazon Linux 2 AMI
-  instance_type = "t2.micro"
 
-  tags = {
-    Name = "ExampleInstance"
-  }
+
+module "ec2_instance" {
+  source        = "./modules/ec2_instance"
+  ami_value           = "ami-00ca32bbc84273381"
+  instance_type_value = "t2.micro"
+
 }
